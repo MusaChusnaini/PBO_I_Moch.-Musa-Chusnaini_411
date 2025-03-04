@@ -7,27 +7,28 @@ public class Codelab {
     public static void main(String[] args){
         String myNama;
         char jenisKelamin;
-        char jenisKelaminLowerCase;
+        char inputLowercase;
         int tahunLahir;
-        Scanner myScanner = new Scanner(System.in);
-        System.out.print("Masukkan Nama : ");
-        myNama = myScanner.nextLine();
+        try (Scanner myScanner = new Scanner(System.in)){
+            System.out.print("Masukkan Nama : ");
+            myNama = myScanner.nextLine();
 
-        // jika inputan selain p/l makaa diulang
-        do{
-            System.out.print("Masukkan Jenis Kelamin (P/L) : ");
-            jenisKelamin = myScanner.next().charAt(0);
-            jenisKelaminLowerCase = Character.toLowerCase(jenisKelamin);
-        }while(!(jenisKelaminLowerCase == 'p' || jenisKelaminLowerCase == 'l'));
-        System.out.print("Masukkan Tahun Lahir : ");
-        tahunLahir = myScanner.nextInt();
 
-        // inisialisasi localdate ambil tahun
+            do{
+                System.out.print("Masukkan Jenis Kelamin (P/L) : ");
+                jenisKelamin = myScanner.next().charAt(0);
+                inputLowercase = Character.toLowerCase(jenisKelamin);
+            }while(!(inputLowercase == 'p' || inputLowercase == 'l'));
+            System.out.print("Masukkan Tahun Lahir : ");
+            tahunLahir = myScanner.nextInt();
+
+        }
+
         LocalDate localDate = LocalDate.now();
         int year = localDate.getYear();
 
         System.out.println("Nama : "+myNama);
-        switch (jenisKelaminLowerCase){
+        switch (inputLowercase){
             case 'p':
                 System.out.println("Jenis Kelamin : Perempuan");
                 break;
@@ -35,7 +36,6 @@ public class Codelab {
                 System.out.println("Jenis Kelamin : Laki-laki");
                 break;
         }
-        myScanner.close(); // habis dibuka tutup dulu ges
         int umur = year - tahunLahir;
         System.out.println("Umur : "+umur);
     }
