@@ -6,7 +6,7 @@ public class Tugas_1 {
         myScanner = new Scanner(System.in);
         String usernameAdmin ="Admin411";
         String passwordAdmin ="Password411";
-
+// myCode
         String usernameMahasiswa = "Moch. Musa Chusnaini";
         String NIMMahasiswa = "202410370110411";
         int inputLogin=0;

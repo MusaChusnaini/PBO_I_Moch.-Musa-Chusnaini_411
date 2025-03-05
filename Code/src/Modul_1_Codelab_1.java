@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 // My Coding is Amazing
 
-public class Codelab {
+public class Modul_1_Codelab_1 {
     public static void main(String[] args){
         String myNama;
         char jenisKelamin;
