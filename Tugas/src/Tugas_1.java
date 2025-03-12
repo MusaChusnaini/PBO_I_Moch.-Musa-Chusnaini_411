@@ -1,43 +1,64 @@
 import java.util.*;
 
 public class Tugas_1 {
+
+    static class Mahasiswa{
+        String usernameMahasiswa;
+        String NIMMahasiswa;
+        Mahasiswa(String usernameMahasiswa,String NIMMahasiswa){
+            this.usernameMahasiswa = usernameMahasiswa;
+            this.NIMMahasiswa = NIMMahasiswa;
+        }
+
+        String getUsernameMahasiswa(){
+            return usernameMahasiswa;
+        }String getNIMMahasiswa(){
+            return NIMMahasiswa;
+        }
+    }
+    static class Admin{
+        String usernameAdmin;
+        String passwordAdmin;
+        Admin(String usernameAdmin,String passwordAdmin){
+            this.usernameAdmin = usernameAdmin;
+            this.passwordAdmin = passwordAdmin;
+        }
+
+        String getUsernameAdmin(){
+            return usernameAdmin;
+        }
+        String getPasswordAdmin(){
+            return passwordAdmin;
+        }
+    }
+
     static Scanner myScanner;
     public static void main(String[] args) {
         myScanner = new Scanner(System.in);
-        String usernameAdmin ="Admin411";
-        String passwordAdmin ="Password411";
-// myCode
-        String usernameMahasiswa = "Moch. Musa Chusnaini";
-        String NIMMahasiswa = "202410370110411";
+
+        Mahasiswa mahasiswa = new Mahasiswa("Moch. Musa Chusnaini","202410370110411");
+        Admin admin = new Admin("Admin411","Password411");
+
         int inputLogin=0;
         System.out.println("Pilih Login\n1. Admin\n2. Mahasiswa");
         inputLogin = myScanner.nextInt();
-        switch (inputLogin){
-            case 1:
-                Login(usernameAdmin,passwordAdmin,1);
-                break;
-            case 2:
-                Login(usernameMahasiswa,NIMMahasiswa,0);
-                break;
-            default:
-                break;
-        }
+        Login(inputLogin,admin,mahasiswa);
     }
 
 
     /// <summary>
-    /// Login jika mahasiswa 0 jika admin 1
+    /// Login jika mahasiswa 2 jika admin 1
     /// </summary>
-    private static void Login(String username, String password, int loginAs) {
+    private static void Login(int loginAs,Admin admin,Mahasiswa mahasiswa) {
         String inputNama;
         switch (loginAs){
-           case 0: // Ini masuk sebagai mahasiswa
+           case 2: // Ini masuk sebagai mahasiswa
                System.out.print("Masukkan Nama : ");
                inputNama = myScanner.nextLine();
                myScanner.nextLine();
                System.out.print("Masukkan NIM : ");
                String inputNim = myScanner.nextLine();
-               if(!(inputNama.equals(username)) && !(inputNim.equals(password))){
+               if(!(inputNama.equals(mahasiswa.getUsernameMahasiswa())) && !(inputNim.equals(mahasiswa.getNIMMahasiswa()))){
                    // Ini jika username salah
                    System.out.println("Login Gagal, username atau password anda salah.");
                }else {
@@ -52,7 +73,7 @@ public class Tugas_1 {
                System.out.print("Masukkan Password : ");
                String inputPassword = myScanner.nextLine();
 
-               if(!(inputNama.equals(username)) && !(inputPassword.equals(password))){
+               if(!(inputNama.equals(admin.getUsernameAdmin())) && !(inputPassword.equals(admin.getPasswordAdmin()))){
                    // Ini jika username salah
                    System.out.println("Login Gagal, username atau password anda salah.");
                }else {

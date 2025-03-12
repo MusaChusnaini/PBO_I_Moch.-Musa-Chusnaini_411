@@ -17,7 +17,6 @@ public class Modul_2_Codelab_1 {
         Hewan hewan2 = new Hewan("Anjing","Mamalia","Woof!");
 
         hewan1.Print();
-
         hewan2.Print();
 
     }
